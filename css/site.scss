@@ -1,0 +1,160 @@
+$primary-color: #f90719;
+$primary-hover: #fd9ca4;
+$bg-dark: #1a1a1a;
+$card-bg: #2b2b2b;
+
+@mixin shadow {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+@mixin shadow-animation {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Zen Kaku Gothic New", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: $bg-dark;
+  color: #e8eaed;
+  overflow-x: hidden;
+}
+
+nav.navbar {
+  border: none !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(33, 37, 41, 0.95) !important;
+}
+
+.bg-primary {
+  background-color: darken($primary-color, 10) !important;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: $primary-color;
+  border-color: $primary-color;
+  @include shadow-animation;
+
+  &:hover,
+  &:focus {
+    color: #202124 !important;
+    background-color: $primary-hover !important;
+    border-color: $primary-hover !important;
+    box-shadow: 0 8px 16px rgba(249, 7, 25, 0.35);
+    cursor: pointer;
+  }
+}
+
+/* Hero Section - Mobile First */
+.hero-section {
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 85vh;
+  min-height: 85svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+
+  @media (min-width: 992px) {
+    min-height: 100vh;
+    min-height: 100svh;
+    background-attachment: fixed;
+  }
+}
+
+.hero-text-box {
+  width: 100%;
+  max-width: 680px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem 1.5rem;
+  margin: 0 auto;
+}
+
+/* Performant Neon Title */
+.neon-title {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
+               0 0 20px rgba(249, 7, 25, 0.8),
+               0 0 35px rgba(249, 7, 25, 0.5);
+}
+
+/* Repeating Stripe Accent (Pure CSS, 0 JS) */
+.stripe-accent {
+  width: 100%;
+  height: 24px;
+  background: repeating-linear-gradient(
+    -45deg,
+    #c80513,
+    #c80513 14px,
+    transparent 14px,
+    transparent 28px
+  );
+}
+
+/* Links */
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover {
+    color: $primary-hover;
+  }
+}
+
+/* Accessible Touch Targets for Footer */
+.social-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
+  color: #ccc;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.25s ease;
+
+  &:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.25rem 0.5rem;
+  color: #ccc;
+  border-radius: 0.375rem;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+/* Card Styling */
+.card {
+  background: $card-bg;
+  @include shadow-animation;
+
+  &:hover {
+    @include shadow;
+  }
+}
